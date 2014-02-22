@@ -19,6 +19,7 @@
 - (void)pickupParcelWithCompletion:(void (^)(void))completion;
 - (void)dropParcelWithLatitude:(NSString*)latitude Longitude:(NSString*)longitude Completion:(void (^)(void))completion;
 - (CLLocationCoordinate2D)getCurrentParcelLocation;
+- (void)displayError:(NSString*)message;
 
 @property (strong, nonatomic) NSArray *locations;
 
