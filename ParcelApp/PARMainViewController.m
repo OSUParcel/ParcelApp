@@ -52,12 +52,19 @@
     self.mapView.camera = camera;
     self.mapView.myLocationEnabled = YES;
     
-    // Creates a marker in the center of the map.
-    GMSMarker *marker = [[GMSMarker alloc] init];
-    marker.position = [delegate.parcelHandler getCurrentParcelLocation];
-    marker.title = @"Parcel";
-    marker.snippet = @"Some Note";
-    marker.map = self.mapView;
+    [self updateParcelLocation];
+}
+
+- (void)updateParcelLocation
+{
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.parcelHandler loadParcelLocationWithCompletion:^{
+        GMSMarker *marker = [[GMSMarker alloc] init];
+        marker.position = [delegate.parcelHandler getCurrentParcelLocation];
+        marker.title = @"Parcel";
+        marker.snippet = @"Some Note";
+        marker.map = self.mapView;
+    }];
 }
 
 - (IBAction)parcelButtonPressed:(UIButton *)sender
