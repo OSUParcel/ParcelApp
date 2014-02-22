@@ -45,17 +45,18 @@
 {
     // Create a GMSCameraPosition that tells the map to display the
     // coordinate -33.86,151.20 at zoom level 6.
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.86
-                                                            longitude:151.20
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:[delegate.parcelHandler getCurrentParcelLocation].latitude
+                                                            longitude:[delegate.parcelHandler getCurrentParcelLocation].longitude
                                                                  zoom:6];
     self.mapView.camera = camera;
     self.mapView.myLocationEnabled = YES;
     
     // Creates a marker in the center of the map.
     GMSMarker *marker = [[GMSMarker alloc] init];
-    marker.position = CLLocationCoordinate2DMake(-33.86, 151.20);
-    marker.title = @"Sydney";
-    marker.snippet = @"Australia";
+    marker.position = [delegate.parcelHandler getCurrentParcelLocation];
+    marker.title = @"Parcel";
+    marker.snippet = @"Some Note";
     marker.map = self.mapView;
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import "PARParcelHandler.h"
+#import "AppDelegate.h"
 
 @implementation PARParcelHandler
 
@@ -60,6 +61,14 @@
 {
     NSString *urlString = [NSString stringWithFormat:@"%@dropparcel?latitude=%@&longitude=%@&groupid=%@&note=%@",
                            SERVER_URL_STRING, latitude, longitude, groupID, note];
+    return [NSURL URLWithString:urlString];
+}
+
+- (NSURL*)getPickupParcelURLForGroupID:(NSString*)groupID
+{
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    NSString *urlString = [NSString stringWithFormat:@"%@pickupparcel?userid=%@&groupid=%@",
+                           SERVER_URL_STRING, delegate.deviceID.deviceID, groupID];
     return [NSURL URLWithString:urlString];
 }
 
