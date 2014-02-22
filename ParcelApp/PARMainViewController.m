@@ -68,5 +68,8 @@
 
 - (IBAction)currentPositionButtonPressed:(UIButton *)sender
 {
+    GMSCameraUpdate *cameraUpdate = [GMSCameraUpdate setTarget:self.mapView.myLocation.coordinate];
+    [self.mapView animateWithCameraUpdate:cameraUpdate];
 }
+
 @end
