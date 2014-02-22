@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3FD53FAA18B940B400CB5C0D /* ios_location_lrg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD53FA918B940B400CB5C0D /* ios_location_lrg.png */; };
-		3FD53FAE18B9423700CB5C0D /* 76x76.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD53FAD18B9423700CB5C0D /* 76x76.png */; };
 		5E8A89D118B91BE5004410F2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E8A89D018B91BE5004410F2 /* Foundation.framework */; };
 		5E8A89D318B91BE5004410F2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E8A89D218B91BE5004410F2 /* CoreGraphics.framework */; };
 		5E8A89D518B91BE5004410F2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E8A89D418B91BE5004410F2 /* UIKit.framework */; };
@@ -39,6 +37,8 @@
 		5E8A8B3718B933AF004410F2 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5E8A8B3618B933AF004410F2 /* GoogleMaps.bundle */; };
 		5E8A8B3B18B93BB6004410F2 /* PARDeviceID.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8A8B3A18B93BB6004410F2 /* PARDeviceID.m */; };
 		5E8A8B3F18B941C8004410F2 /* PARParcelHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8A8B3E18B941C8004410F2 /* PARParcelHandler.m */; };
+		5E8A8B4218B94DA3004410F2 /* 120x120trans.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5E8A8B4118B94DA3004410F2 /* 120x120trans.gif */; };
+		5E8A8B4418B94F5E004410F2 /* ios_location_lrg.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E8A8B4318B94F5E004410F2 /* ios_location_lrg.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +52,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3FD53FA918B940B400CB5C0D /* ios_location_lrg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ios_location_lrg.png; sourceTree = "<group>"; };
-		3FD53FAD18B9423700CB5C0D /* 76x76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 76x76.png; sourceTree = "<group>"; };
 		5E8A89CD18B91BE5004410F2 /* ParcelApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParcelApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E8A89D018B91BE5004410F2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5E8A89D218B91BE5004410F2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -91,6 +89,8 @@
 		5E8A8B3A18B93BB6004410F2 /* PARDeviceID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PARDeviceID.m; sourceTree = "<group>"; };
 		5E8A8B3D18B941C8004410F2 /* PARParcelHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PARParcelHandler.h; sourceTree = "<group>"; };
 		5E8A8B3E18B941C8004410F2 /* PARParcelHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PARParcelHandler.m; sourceTree = "<group>"; };
+		5E8A8B4118B94DA3004410F2 /* 120x120trans.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = 120x120trans.gif; path = Images/120x120trans.gif; sourceTree = SOURCE_ROOT; };
+		5E8A8B4318B94F5E004410F2 /* ios_location_lrg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ios_location_lrg.png; path = Images/ios_location_lrg.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +179,7 @@
 			children = (
 				5E8A89DF18B91BE5004410F2 /* AppDelegate.h */,
 				5E8A89E018B91BE5004410F2 /* AppDelegate.m */,
+				5E8A8B4018B94D63004410F2 /* Images */,
 				5E8A8A0018B920F9004410F2 /* Models */,
 				5E8A89FF18B920F3004410F2 /* View Controllers */,
 				5E8A89E218B91BE5004410F2 /* Images.xcassets */,
@@ -221,8 +222,6 @@
 			children = (
 				5E8A8A0118B92281004410F2 /* PARMainViewController.h */,
 				5E8A8A0218B92281004410F2 /* PARMainViewController.m */,
-				3FD53FA918B940B400CB5C0D /* ios_location_lrg.png */,
-				3FD53FAD18B9423700CB5C0D /* 76x76.png */,
 				5E8A8A0318B92281004410F2 /* PARMainViewController.xib */,
 			);
 			name = "View Controllers";
@@ -253,6 +252,15 @@
 				5E8A8B3E18B941C8004410F2 /* PARParcelHandler.m */,
 			);
 			name = PARParcelHandler;
+			sourceTree = "<group>";
+		};
+		5E8A8B4018B94D63004410F2 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				5E8A8B4318B94F5E004410F2 /* ios_location_lrg.png */,
+				5E8A8B4118B94DA3004410F2 /* 120x120trans.gif */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,9 +371,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FD53FAA18B940B400CB5C0D /* ios_location_lrg.png in Resources */,
+				5E8A8B4418B94F5E004410F2 /* ios_location_lrg.png in Resources */,
 				5E8A8A0518B92281004410F2 /* PARMainViewController.xib in Resources */,
-				3FD53FAE18B9423700CB5C0D /* 76x76.png in Resources */,
+				5E8A8B4218B94DA3004410F2 /* 120x120trans.gif in Resources */,
 				5E8A89DB18B91BE5004410F2 /* InfoPlist.strings in Resources */,
 				5E8A89E318B91BE5004410F2 /* Images.xcassets in Resources */,
 				5E8A8B3718B933AF004410F2 /* GoogleMaps.bundle in Resources */,

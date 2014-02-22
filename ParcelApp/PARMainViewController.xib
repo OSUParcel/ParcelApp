@@ -23,13 +23,13 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3Y-LW-LZv">
-                    <rect key="frame" x="14" y="510" width="45" height="45"/>
+                    <rect key="frame" x="204" y="510" width="45" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="45" id="BhJ-za-LHf"/>
-                        <constraint firstAttribute="width" constant="45" id="Ydj-zn-WtZ"/>
+                        <constraint firstAttribute="height" constant="45" id="UWa-vB-Sj1"/>
+                        <constraint firstAttribute="width" constant="45" id="dqQ-X0-cn9"/>
                     </constraints>
-                    <state key="normal" title="Button" image="76x76.png">
+                    <state key="normal" title="Button" image="120x120trans.gif">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
@@ -51,17 +51,17 @@
                 <constraint firstAttribute="trailing" secondItem="BJf-8z-LtB" secondAttribute="trailing" constant="20" id="BGu-PI-fTC"/>
                 <constraint firstAttribute="bottom" secondItem="QsL-jx-TYw" secondAttribute="bottom" id="CHz-sa-1tU"/>
                 <constraint firstAttribute="trailing" secondItem="QsL-jx-TYw" secondAttribute="trailing" id="GVb-zU-wWW"/>
+                <constraint firstItem="BJf-8z-LtB" firstAttribute="leading" secondItem="a3Y-LW-LZv" secondAttribute="trailing" constant="20" id="IPQ-bF-rj1"/>
                 <constraint firstItem="QsL-jx-TYw" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="NwZ-mi-ySh"/>
-                <constraint firstAttribute="bottom" secondItem="a3Y-LW-LZv" secondAttribute="bottom" constant="13" id="m2l-JB-Sdz"/>
-                <constraint firstItem="a3Y-LW-LZv" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="14" id="pYl-aU-ERu"/>
                 <constraint firstAttribute="bottom" secondItem="BJf-8z-LtB" secondAttribute="bottom" constant="20" id="rvg-DG-Ysz"/>
+                <constraint firstAttribute="bottom" secondItem="a3Y-LW-LZv" secondAttribute="bottom" constant="13" id="zcN-QZ-Evg"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
     <resources>
-        <image name="76x76.png" width="76" height="76"/>
+        <image name="120x120trans.gif" width="120" height="120"/>
         <image name="ios_location_lrg.png" width="310" height="310"/>
     </resources>
 </document>
