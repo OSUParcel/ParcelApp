@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet GMSMapView *mapView;
 @property (strong, nonatomic) PARBannerViewController *bannerViewController;
 
+@property (weak, nonatomic) IBOutlet UIView *bannerView;
 @property (weak, nonatomic) IBOutlet UIButton *parcelLocationButton;
 
 @end

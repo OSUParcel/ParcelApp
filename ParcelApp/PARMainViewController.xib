@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PARMainViewController">
             <connections>
+                <outlet property="bannerView" destination="G2F-Ts-BfY" id="2yK-tO-VY7"/>
                 <outlet property="currentLocationButton" destination="BJf-8z-LtB" id="9oD-vF-iRE"/>
                 <outlet property="mapView" destination="QsL-jx-TYw" id="IjS-lx-NfW"/>
                 <outlet property="parcelLocationButton" destination="a3Y-LW-LZv" id="aqm-Uq-9bF"/>
@@ -21,6 +22,15 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G2F-Ts-BfY">
+                    <rect key="frame" x="34" y="20" width="250" height="60"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="250" id="mao-Jw-Hl8"/>
+                        <constraint firstAttribute="height" constant="60" id="w5l-gC-dIH"/>
+                    </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3Y-LW-LZv">
                     <rect key="frame" x="204" y="510" width="45" height="45"/>
@@ -53,12 +63,14 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="G2F-Ts-BfY" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" id="8SQ-Un-hZt"/>
                 <constraint firstItem="QsL-jx-TYw" firstAttribute="top" secondItem="1" secondAttribute="top" id="A7J-pa-ue9"/>
                 <constraint firstAttribute="trailing" secondItem="BJf-8z-LtB" secondAttribute="trailing" constant="20" id="BGu-PI-fTC"/>
                 <constraint firstAttribute="bottom" secondItem="QsL-jx-TYw" secondAttribute="bottom" id="CHz-sa-1tU"/>
                 <constraint firstAttribute="trailing" secondItem="QsL-jx-TYw" secondAttribute="trailing" id="GVb-zU-wWW"/>
                 <constraint firstItem="BJf-8z-LtB" firstAttribute="leading" secondItem="a3Y-LW-LZv" secondAttribute="trailing" constant="20" id="IPQ-bF-rj1"/>
                 <constraint firstItem="QsL-jx-TYw" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="NwZ-mi-ySh"/>
+                <constraint firstAttribute="centerX" secondItem="G2F-Ts-BfY" secondAttribute="centerX" constant="1" id="Quk-bs-Dz0"/>
                 <constraint firstAttribute="bottom" secondItem="BJf-8z-LtB" secondAttribute="bottom" constant="20" id="rvg-DG-Ysz"/>
                 <constraint firstAttribute="bottom" secondItem="a3Y-LW-LZv" secondAttribute="bottom" constant="13" id="zcN-QZ-Evg"/>
             </constraints>

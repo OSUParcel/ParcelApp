@@ -61,7 +61,7 @@
 {
     self.bannerViewController = [[PARBannerViewController alloc] initWithNibName:@"PARBannerViewController" bundle:nil];
     self.bannerViewController.mapView = self.mapView;
-    [self.view addSubview:self.bannerViewController.view];
+    self.bannerView = self.bannerViewController.view;
 }
 
 - (void)updateParcelLocation
@@ -71,7 +71,7 @@
         GMSMarker *marker = [[GMSMarker alloc] init];
         marker.position = [delegate.parcelHandler getCurrentParcelLocation];
         marker.title = @"Parcel";
-        marker.snippet = @"Some Note";
+        marker.snippet = [NSString stringWithFormat:@"%f, %f", marker.position.latitude, marker.position.longitude];
         marker.map = self.mapView;
     }];
 }
