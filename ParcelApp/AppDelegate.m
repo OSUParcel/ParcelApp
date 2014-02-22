@@ -13,6 +13,8 @@
 
 @implementation AppDelegate
 
+@synthesize deviceID;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -21,6 +23,9 @@
     
     // Google Maps setup
     [GMSServices provideAPIKey:@"AIzaSyBHQEH3FqNdw3RL-aEatF1vRXiMEdbVU5Q"];
+    
+    // device id setup
+    self.deviceID = [PARDeviceID new];
     
     // root view controller
     PARMainViewController *rootViewController = [[PARMainViewController alloc] initWithNibName:@"PARMainViewController" bundle:nil];

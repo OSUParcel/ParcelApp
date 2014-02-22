@@ -26,14 +26,13 @@
 {
     if (![[NSUserDefaults standardUserDefaults] objectForKey:DEVICE_ID_KEY]) {
         // create new device key
-        CFUUIDRef identifier = CFUUIDCreate(NULL);
-        self.deviceID = (NSString*)CFBridgingRelease(CFUUIDCreateString(NULL, identifier));
-        NSLog(@"%@", self.deviceID);
+        self.deviceID = [[NSUUID UUID] UUIDString];;
         [[NSUserDefaults standardUserDefaults] setObject:self.deviceID forKey:DEVICE_ID_KEY];
     } else {
         // recall old device key
         self.deviceID = [[NSUserDefaults standardUserDefaults] objectForKey:DEVICE_ID_KEY];
     }
+    NSLog(@"PAR Device ID: %@", self.deviceID);
 }
 
 @end
