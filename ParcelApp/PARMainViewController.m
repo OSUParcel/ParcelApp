@@ -45,16 +45,17 @@
 {
     // Create a GMSCameraPosition that tells the map to display the
     // coordinate -33.86,151.20 at zoom level 6.
-    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:[delegate.parcelHandler getCurrentParcelLocation].latitude
-                                                            longitude:[delegate.parcelHandler getCurrentParcelLocation].longitude
-                                                                 zoom:6];
-    self.mapView.camera = camera;
     self.mapView.myLocationEnabled = YES;
     
     [self setupBannerView];
     
-    [self updateParcelLocation];
+    [self updateParcelLocationWithCompletion:^{
+        AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+        GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:[delegate.parcelHandler getCurrentParcelLocation].latitude
+                                                                longitude:[delegate.parcelHandler getCurrentParcelLocation].longitude
+                                                                     zoom:6];
+        self.mapView.camera = camera;
+    }];
 }
 
 - (void)setupBannerView
@@ -64,7 +65,7 @@
     self.bannerView = self.bannerViewController.view;
 }
 
-- (void)updateParcelLocation
+- (void)updateParcelLocationWithCompletion:(void (^)(void))completion
 {
     AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     [delegate.parcelHandler loadParcelLocationWithCompletion:^{
@@ -73,6 +74,7 @@
         marker.title = @"Parcel";
         marker.snippet = [NSString stringWithFormat:@"%f, %f", marker.position.latitude, marker.position.longitude];
         marker.map = self.mapView;
+        [completion invoke];
     }];
 }
 

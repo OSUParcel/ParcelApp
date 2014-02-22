@@ -35,6 +35,24 @@
     }] resume];
 }
 
+- (void)pickupParcelWithCompletion:(void (^)(void))completion
+{
+    NSURLSession *session = [NSURLSession sharedSession];
+    [[session dataTaskWithURL:[self getPickupParcelURLForGroupID:GROUP_ID] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        [self loadParcelLocationWithCompletion:nil];
+        [completion invoke];
+    }] resume];
+}
+
+- (void)dropParcelWithLatitude:(NSString*)latitude Longitude:(NSString*)longitude Completion:(void (^)(void))completion
+{
+    NSURLSession *session = [NSURLSession sharedSession];
+    [[session dataTaskWithURL:[self getDropParcelURLWithLatitude:latitude Longitude:longitude GroupID:GROUP_ID Note:@""] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        [self loadParcelLocationWithCompletion:nil];
+        [completion invoke];
+    }] resume];
+}
+
 - (CLLocationCoordinate2D)getCurrentParcelLocation
 {
     NSString *latitudeString = [((NSDictionary*)[self.locations objectAtIndex:0]) objectForKey:@"Latitude"];
