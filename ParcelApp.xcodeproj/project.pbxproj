@@ -35,6 +35,7 @@
 		5E8A8B3318B9245F004410F2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E8A8B3218B9245F004410F2 /* SystemConfiguration.framework */; };
 		5E8A8B3518B933A8004410F2 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E8A8B3418B933A8004410F2 /* GoogleMaps.framework */; };
 		5E8A8B3718B933AF004410F2 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5E8A8B3618B933AF004410F2 /* GoogleMaps.bundle */; };
+		5E8A8B3B18B93BB6004410F2 /* PARDeviceID.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8A8B3A18B93BB6004410F2 /* PARDeviceID.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,8 @@
 		5E8A8B3218B9245F004410F2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5E8A8B3418B933A8004410F2 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		5E8A8B3618B933AF004410F2 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
+		5E8A8B3918B93BB6004410F2 /* PARDeviceID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PARDeviceID.h; sourceTree = "<group>"; };
+		5E8A8B3A18B93BB6004410F2 /* PARDeviceID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PARDeviceID.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,8 +222,18 @@
 		5E8A8A0018B920F9004410F2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5E8A8B3818B93B8D004410F2 /* PARDeviceID */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		5E8A8B3818B93B8D004410F2 /* PARDeviceID */ = {
+			isa = PBXGroup;
+			children = (
+				5E8A8B3918B93BB6004410F2 /* PARDeviceID.h */,
+				5E8A8B3A18B93BB6004410F2 /* PARDeviceID.m */,
+			);
+			name = PARDeviceID;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,6 +366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E8A8B3B18B93BB6004410F2 /* PARDeviceID.m in Sources */,
 				5E8A89E118B91BE5004410F2 /* AppDelegate.m in Sources */,
 				5E8A8A0418B92281004410F2 /* PARMainViewController.m in Sources */,
 				5E8A89DD18B91BE5004410F2 /* main.m in Sources */,
