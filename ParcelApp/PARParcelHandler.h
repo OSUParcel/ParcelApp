@@ -13,7 +13,7 @@
 
 @interface PARParcelHandler : NSObject
 
-- (void)loadParcelLocation;
+- (void)loadParcelLocationWithCompletion:(void (^)(void))completion;
 - (CLLocationCoordinate2D)getCurrentParcelLocation;
 
 @property (strong, nonatomic) NSArray *locations;

@@ -11,6 +11,9 @@
 
 @interface PARMainViewController : UIViewController
 
+- (IBAction)parcelButtonPressed:(UIButton *)sender;
+- (IBAction)currentPositionButtonPressed:(UIButton *)sender;
+
 @property (weak, nonatomic) IBOutlet UIButton *currentLocationButton;
 @property (strong, nonatomic) IBOutlet GMSMapView *mapView;
 

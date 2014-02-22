@@ -7,6 +7,7 @@
 //
 
 #import "PARMainViewController.h"
+#import "AppDelegate.h"
 #import <GoogleMaps/GoogleMaps.h>
 
 @interface PARMainViewController ()
@@ -58,4 +59,14 @@
     marker.map = self.mapView;
 }
 
+- (IBAction)parcelButtonPressed:(UIButton *)sender
+{
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    GMSCameraUpdate *cameraUpdate = [GMSCameraUpdate setTarget:[delegate.parcelHandler getCurrentParcelLocation]];
+    [self.mapView animateWithCameraUpdate:cameraUpdate];
+}
+
+- (IBAction)currentPositionButtonPressed:(UIButton *)sender
+{
+}
 @end

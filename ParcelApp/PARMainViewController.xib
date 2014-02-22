@@ -32,6 +32,9 @@
                     <state key="normal" title="Button" image="120x120trans.gif">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="parcelButtonPressed:" destination="-1" eventType="touchUpInside" id="K88-8F-MVY"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJf-8z-LtB">
                     <rect key="frame" x="269" y="517" width="31" height="31"/>
@@ -43,6 +46,9 @@
                     <state key="normal" title="Button" image="ios_location_lrg.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="currentPositionButtonPressed:" destination="-1" eventType="touchUpInside" id="dgi-e0-eQM"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

@@ -16,12 +16,12 @@
 {
     self = [super init];
     if (self) {
-        [self loadParcelLocation];
+        [self loadParcelLocationWithCompletion:nil];
     }
     return self;
 }
 
-- (void)loadParcelLocation
+- (void)loadParcelLocationWithCompletion:(void (^)(void))completion
 {
     NSURLSession *session = [NSURLSession sharedSession];
     [[session dataTaskWithURL:[self getLocateParcelsURL] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -30,6 +30,7 @@
                                                                        options:NSJSONReadingAllowFragments
                                                                          error:&jsonError];
         self.locations = locationsFromServer;
+        [completion invoke];
     }] resume];
 }
 
@@ -41,6 +42,7 @@
     [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
     CLLocationDegrees latitude = [[formatter numberFromString:latitudeString] doubleValue];
     CLLocationDegrees longitude = [[formatter numberFromString:longitudeString] doubleValue];
+    NSLog(@"lat: %f, long: %f", latitude, longitude);
     return CLLocationCoordinate2DMake(latitude, longitude);
 }
 
@@ -61,5 +63,6 @@
                            SERVER_URL_STRING, latitude, longitude, groupID, note];
     return [NSURL URLWithString:urlString];
 }
+
 
 @end
