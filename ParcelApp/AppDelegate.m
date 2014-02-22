@@ -8,12 +8,13 @@
 
 #import "AppDelegate.h"
 #import "PARMainViewController.h"
+#import "PARParcelHandler.h"
 
 #import <GoogleMaps/GoogleMaps.h>
 
 @implementation AppDelegate
 
-@synthesize deviceID;
+@synthesize deviceID, parcelHandler;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -26,6 +27,9 @@
     
     // device id setup
     self.deviceID = [PARDeviceID new];
+    
+    // fetch data
+    self.parcelHandler = [PARParcelHandler new];
     
     // root view controller
     PARMainViewController *rootViewController = [[PARMainViewController alloc] initWithNibName:@"PARMainViewController" bundle:nil];
