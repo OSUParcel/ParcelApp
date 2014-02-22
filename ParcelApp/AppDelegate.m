@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "PARMainViewController.h"
 
+#import <GoogleMaps/GoogleMaps.h>
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -17,6 +19,10 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
+    // Google Maps setup
+    [GMSServices provideAPIKey:@"AIzaSyBHQEH3FqNdw3RL-aEatF1vRXiMEdbVU5Q"];
+    
+    // root view controller
     PARMainViewController *rootViewController = [[PARMainViewController alloc] initWithNibName:@"PARMainViewController" bundle:nil];
     self.window.rootViewController = rootViewController;
     
