@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <GoogleMaps/GoogleMaps.h>
 
 @interface PARBannerViewController : UIViewController
+
+@property (weak, nonatomic) GMSMapView* mapView;
 
 @end

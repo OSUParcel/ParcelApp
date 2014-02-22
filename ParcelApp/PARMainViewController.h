@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <GoogleMaps/GoogleMaps.h>
+#import "PARBannerViewController.h"
 
 @interface PARMainViewController : UIViewController
 
@@ -16,6 +17,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *currentLocationButton;
 @property (strong, nonatomic) IBOutlet GMSMapView *mapView;
+@property (strong, nonatomic) PARBannerViewController *bannerViewController;
 
 @property (weak, nonatomic) IBOutlet UIButton *parcelLocationButton;
+
 @end

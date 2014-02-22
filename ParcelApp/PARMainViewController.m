@@ -16,7 +16,7 @@
 
 @implementation PARMainViewController
 
-@synthesize mapView;
+@synthesize mapView, bannerViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -52,7 +52,16 @@
     self.mapView.camera = camera;
     self.mapView.myLocationEnabled = YES;
     
+    [self setupBannerView];
+    
     [self updateParcelLocation];
+}
+
+- (void)setupBannerView
+{
+    self.bannerViewController = [[PARBannerViewController alloc] initWithNibName:@"PARBannerViewController" bundle:nil];
+    self.bannerViewController.mapView = self.mapView;
+    [self.view addSubview:self.bannerViewController.view];
 }
 
 - (void)updateParcelLocation
