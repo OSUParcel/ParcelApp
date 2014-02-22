@@ -7,11 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 #define SERVER_URL_STRING @"https://parcelserver.appspot.com/"
 
 @interface PARParcelHandler : NSObject
 
-- (void)getParcelLocation;
+- (void)loadParcelLocation;
+- (CLLocationCoordinate2D)getCurrentParcelLocation;
+
+@property (strong, nonatomic) NSArray *locations;
 
 @end

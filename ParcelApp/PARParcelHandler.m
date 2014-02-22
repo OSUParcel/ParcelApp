@@ -16,12 +16,12 @@
 {
     self = [super init];
     if (self) {
-        [self getParcelLocation];
+        [self loadParcelLocation];
     }
     return self;
 }
 
-- (void)getParcelLocation
+- (void)loadParcelLocation
 {
     NSURLSession *session = [NSURLSession sharedSession];
     [[session dataTaskWithURL:[self getLocateParcelsURL] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -32,6 +32,19 @@
         self.locations = locationsFromServer;
     }] resume];
 }
+
+- (CLLocationCoordinate2D)getCurrentParcelLocation
+{
+    NSString *latitudeString = [((NSDictionary*)[self.locations objectAtIndex:0]) objectForKey:@"Latitude"];
+    NSString *longitudeString = [((NSDictionary*)[self.locations objectAtIndex:0]) objectForKey:@"Longitude"];
+    NSNumberFormatter *formatter = [NSNumberFormatter new];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    CLLocationDegrees latitude = [[formatter numberFromString:latitudeString] doubleValue];
+    CLLocationDegrees longitude = [[formatter numberFromString:longitudeString] doubleValue];
+    return CLLocationCoordinate2DMake(latitude, longitude);
+}
+
+// ---- [ urls ] ---------------------------------------------------------------------------
 
 - (NSURL*)getLocateParcelsURL
 {
