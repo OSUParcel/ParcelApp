@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FD53FAA18B940B400CB5C0D /* ios_location_lrg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD53FA918B940B400CB5C0D /* ios_location_lrg.png */; };
+		3FD53FAE18B9423700CB5C0D /* 76x76.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD53FAD18B9423700CB5C0D /* 76x76.png */; };
 		5E8A89D118B91BE5004410F2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E8A89D018B91BE5004410F2 /* Foundation.framework */; };
 		5E8A89D318B91BE5004410F2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E8A89D218B91BE5004410F2 /* CoreGraphics.framework */; };
 		5E8A89D518B91BE5004410F2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E8A89D418B91BE5004410F2 /* UIKit.framework */; };
@@ -48,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3FD53FA918B940B400CB5C0D /* ios_location_lrg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ios_location_lrg.png; sourceTree = "<group>"; };
+		3FD53FAD18B9423700CB5C0D /* 76x76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 76x76.png; sourceTree = "<group>"; };
 		5E8A89CD18B91BE5004410F2 /* ParcelApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParcelApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E8A89D018B91BE5004410F2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5E8A89D218B91BE5004410F2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -211,6 +215,8 @@
 			children = (
 				5E8A8A0118B92281004410F2 /* PARMainViewController.h */,
 				5E8A8A0218B92281004410F2 /* PARMainViewController.m */,
+				3FD53FA918B940B400CB5C0D /* ios_location_lrg.png */,
+				3FD53FAD18B9423700CB5C0D /* 76x76.png */,
 				5E8A8A0318B92281004410F2 /* PARMainViewController.xib */,
 			);
 			name = "View Controllers";
@@ -331,7 +337,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FD53FAA18B940B400CB5C0D /* ios_location_lrg.png in Resources */,
 				5E8A8A0518B92281004410F2 /* PARMainViewController.xib in Resources */,
+				3FD53FAE18B9423700CB5C0D /* 76x76.png in Resources */,
 				5E8A89DB18B91BE5004410F2 /* InfoPlist.strings in Resources */,
 				5E8A89E318B91BE5004410F2 /* Images.xcassets in Resources */,
 				5E8A8B3718B933AF004410F2 /* GoogleMaps.bundle in Resources */,

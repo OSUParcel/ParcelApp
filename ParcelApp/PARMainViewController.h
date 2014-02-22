@@ -11,6 +11,8 @@
 
 @interface PARMainViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *currentLocationButton;
 @property (strong, nonatomic) IBOutlet GMSMapView *mapView;
 
+@property (weak, nonatomic) IBOutlet UIButton *parcelLocationButton;
 @end
