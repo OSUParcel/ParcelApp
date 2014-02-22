@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13B3116" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -20,37 +20,41 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QsL-jx-TYw" customClass="GMSMapView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3Y-LW-LZv">
-                            <rect key="frame" x="13" y="511" width="45" height="45"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button" image="76x76.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJf-8z-LtB">
-                            <rect key="frame" x="269" y="518" width="31" height="31"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button" image="ios_location_lrg.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                        </button>
-                    </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="bottom" secondItem="BJf-8z-LtB" secondAttribute="bottom" constant="20" id="DIg-cp-zDD"/>
-                        <constraint firstAttribute="trailing" secondItem="BJf-8z-LtB" secondAttribute="trailing" constant="20" id="Wx1-ya-Rqh"/>
-                        <constraint firstAttribute="bottom" secondItem="a3Y-LW-LZv" secondAttribute="bottom" constant="12" id="dRq-Xm-TJo"/>
-                        <constraint firstItem="a3Y-LW-LZv" firstAttribute="leading" secondItem="QsL-jx-TYw" secondAttribute="leading" constant="13" id="rNI-He-fqj"/>
-                    </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3Y-LW-LZv">
+                    <rect key="frame" x="14" y="510" width="45" height="45"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="BhJ-za-LHf"/>
+                        <constraint firstAttribute="width" constant="45" id="Ydj-zn-WtZ"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="76x76.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJf-8z-LtB">
+                    <rect key="frame" x="269" y="517" width="31" height="31"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="31" id="UIq-5Y-jxY"/>
+                        <constraint firstAttribute="height" constant="31" id="ZLa-5C-gqZ"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="ios_location_lrg.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="QsL-jx-TYw" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="LtV-5g-yVS"/>
-                <constraint firstItem="QsL-jx-TYw" firstAttribute="top" secondItem="1" secondAttribute="top" id="dCZ-fk-2Xg"/>
-                <constraint firstAttribute="trailing" secondItem="QsL-jx-TYw" secondAttribute="trailing" id="gM8-3p-IUU"/>
-                <constraint firstAttribute="bottom" secondItem="QsL-jx-TYw" secondAttribute="bottom" id="nJv-X9-V8r"/>
+                <constraint firstItem="QsL-jx-TYw" firstAttribute="top" secondItem="1" secondAttribute="top" id="A7J-pa-ue9"/>
+                <constraint firstAttribute="trailing" secondItem="BJf-8z-LtB" secondAttribute="trailing" constant="20" id="BGu-PI-fTC"/>
+                <constraint firstAttribute="bottom" secondItem="QsL-jx-TYw" secondAttribute="bottom" id="CHz-sa-1tU"/>
+                <constraint firstAttribute="trailing" secondItem="QsL-jx-TYw" secondAttribute="trailing" id="GVb-zU-wWW"/>
+                <constraint firstItem="QsL-jx-TYw" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="NwZ-mi-ySh"/>
+                <constraint firstAttribute="bottom" secondItem="a3Y-LW-LZv" secondAttribute="bottom" constant="13" id="m2l-JB-Sdz"/>
+                <constraint firstItem="a3Y-LW-LZv" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="14" id="pYl-aU-ERu"/>
+                <constraint firstAttribute="bottom" secondItem="BJf-8z-LtB" secondAttribute="bottom" constant="20" id="rvg-DG-Ysz"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
