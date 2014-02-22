@@ -19,6 +19,8 @@
 		5E8A89EC18B91BE5004410F2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E8A89D418B91BE5004410F2 /* UIKit.framework */; };
 		5E8A89F418B91BE5004410F2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E8A89F218B91BE5004410F2 /* InfoPlist.strings */; };
 		5E8A89F618B91BE5004410F2 /* ParcelAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8A89F518B91BE5004410F2 /* ParcelAppTests.m */; };
+		5E8A8A0418B92281004410F2 /* PARMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8A8A0218B92281004410F2 /* PARMainViewController.m */; };
+		5E8A8A0518B92281004410F2 /* PARMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E8A8A0318B92281004410F2 /* PARMainViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,9 @@
 		5E8A89F118B91BE5004410F2 /* ParcelAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ParcelAppTests-Info.plist"; sourceTree = "<group>"; };
 		5E8A89F318B91BE5004410F2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5E8A89F518B91BE5004410F2 /* ParcelAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParcelAppTests.m; sourceTree = "<group>"; };
+		5E8A8A0118B92281004410F2 /* PARMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PARMainViewController.h; sourceTree = "<group>"; };
+		5E8A8A0218B92281004410F2 /* PARMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PARMainViewController.m; sourceTree = "<group>"; };
+		5E8A8A0318B92281004410F2 /* PARMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PARMainViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,10 +112,10 @@
 		5E8A89D618B91BE5004410F2 /* ParcelApp */ = {
 			isa = PBXGroup;
 			children = (
-				5E8A8A0018B920F9004410F2 /* Models */,
-				5E8A89FF18B920F3004410F2 /* View Controllers */,
 				5E8A89DF18B91BE5004410F2 /* AppDelegate.h */,
 				5E8A89E018B91BE5004410F2 /* AppDelegate.m */,
+				5E8A8A0018B920F9004410F2 /* Models */,
+				5E8A89FF18B920F3004410F2 /* View Controllers */,
 				5E8A89E218B91BE5004410F2 /* Images.xcassets */,
 				5E8A89D718B91BE5004410F2 /* Supporting Files */,
 			);
@@ -149,6 +154,9 @@
 		5E8A89FF18B920F3004410F2 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5E8A8A0118B92281004410F2 /* PARMainViewController.h */,
+				5E8A8A0218B92281004410F2 /* PARMainViewController.m */,
+				5E8A8A0318B92281004410F2 /* PARMainViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -235,6 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E8A8A0518B92281004410F2 /* PARMainViewController.xib in Resources */,
 				5E8A89DB18B91BE5004410F2 /* InfoPlist.strings in Resources */,
 				5E8A89E318B91BE5004410F2 /* Images.xcassets in Resources */,
 			);
@@ -256,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E8A89E118B91BE5004410F2 /* AppDelegate.m in Sources */,
+				5E8A8A0418B92281004410F2 /* PARMainViewController.m in Sources */,
 				5E8A89DD18B91BE5004410F2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
