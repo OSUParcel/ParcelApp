@@ -30,7 +30,6 @@
                                                                        options:NSJSONReadingAllowFragments
                                                                          error:&jsonError];
         self.locations = locationsFromServer;
-        NSLog(@"JSON data: %@", locationsFromServer);
     }] resume];
 }
 
@@ -42,9 +41,11 @@
 
 - (NSURL*)getDropParcelURLWithLatitude:(NSString*)latitude
                              Longitude:(NSString*)longitude
+                               GroupID:(NSString*)groupID
+                                  Note:(NSString*)note
 {
-    NSString *urlString = [NSString stringWithFormat:@"%@dropparcel?latitude=%@&longitude=%@&groupid=1",
-                           SERVER_URL_STRING, latitude, longitude];
+    NSString *urlString = [NSString stringWithFormat:@"%@dropparcel?latitude=%@&longitude=%@&groupid=%@&note=%@",
+                           SERVER_URL_STRING, latitude, longitude, groupID, note];
     return [NSURL URLWithString:urlString];
 }
 

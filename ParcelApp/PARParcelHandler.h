@@ -14,6 +14,4 @@
 
 - (void)getParcelLocation;
 
-@property (strong, nonatomic) NSArray *locations;
-
 @end
