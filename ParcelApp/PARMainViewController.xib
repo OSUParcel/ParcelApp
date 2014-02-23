@@ -19,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QsL-jx-TYw" customClass="GMSMapView">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QsL-jx-TYw" customClass="GMSMapView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -74,6 +74,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="FVO-6a-tS4" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="8Mc-jL-myC"/>
+                <constraint firstAttribute="trailing" secondItem="QsL-jx-TYw" secondAttribute="trailing" id="9Oi-Bx-WCx"/>
                 <constraint firstItem="Ud7-fN-MCH" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="BAU-fo-E5e"/>
                 <constraint firstAttribute="trailing" secondItem="BJf-8z-LtB" secondAttribute="trailing" constant="20" id="BGu-PI-fTC"/>
                 <constraint firstAttribute="bottom" secondItem="FVO-6a-tS4" secondAttribute="bottom" constant="13" id="Gj8-Ox-t9E"/>
@@ -82,8 +83,11 @@
                 <constraint firstAttribute="trailing" secondItem="Ud7-fN-MCH" secondAttribute="trailing" constant="20" id="Inz-ck-TsL"/>
                 <constraint firstAttribute="centerX" secondItem="Ud7-fN-MCH" secondAttribute="centerX" id="WWo-aq-zM1"/>
                 <constraint firstAttribute="bottom" secondItem="BJf-8z-LtB" secondAttribute="bottom" constant="20" id="rvg-DG-Ysz"/>
+                <constraint firstAttribute="bottom" secondItem="QsL-jx-TYw" secondAttribute="bottom" id="rwa-wW-cWW"/>
                 <constraint firstItem="Ud7-fN-MCH" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" id="wmt-md-9z5"/>
+                <constraint firstItem="QsL-jx-TYw" firstAttribute="top" secondItem="1" secondAttribute="top" id="xI5-BU-SC9"/>
                 <constraint firstAttribute="bottom" secondItem="a3Y-LW-LZv" secondAttribute="bottom" constant="13" id="zcN-QZ-Evg"/>
+                <constraint firstItem="QsL-jx-TYw" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="ztX-Ha-DCV"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
