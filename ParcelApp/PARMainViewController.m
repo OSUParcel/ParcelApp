@@ -16,7 +16,7 @@
 
 @implementation PARMainViewController
 
-@synthesize mapView, bannerViewController;
+@synthesize mapView, bannerViewController, parcelPath, parcelPathLine, parcelMarker;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,34 +45,64 @@
 {
     // Create a GMSCameraPosition that tells the map to display the
     // coordinate -33.86,151.20 at zoom level 6.
-    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:[delegate.parcelHandler getCurrentParcelLocation].latitude
-                                                            longitude:[delegate.parcelHandler getCurrentParcelLocation].longitude
-                                                                 zoom:6];
-    self.mapView.camera = camera;
     self.mapView.myLocationEnabled = YES;
+    self.mapView.delegate = self;
     
     [self setupBannerView];
     
-    [self updateParcelLocation];
+    [self updateParcelLocationWithCompletion:^{
+        AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+        GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:[delegate.parcelHandler getCurrentParcelLocation].latitude
+                                                                longitude:[delegate.parcelHandler getCurrentParcelLocation].longitude
+                                                                     zoom:6];
+        self.mapView.camera = camera;
+    }];
 }
 
 - (void)setupBannerView
 {
     self.bannerViewController = [[PARBannerViewController alloc] initWithNibName:@"PARBannerViewController" bundle:nil];
     self.bannerViewController.mapView = self.mapView;
-    [self.view addSubview:self.bannerViewController.view];
+    self.bannerView = self.bannerViewController.view;
 }
 
-- (void)updateParcelLocation
+- (void)setupPath
+{
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    self.parcelPath = [GMSMutablePath path];
+    for (NSDictionary *location in delegate.parcelHandler.locations) {
+        NSString *latitudeString = [location objectForKey:@"Latitude"];
+        NSString *longitudeString = [location objectForKey:@"Longitude"];
+        NSNumberFormatter *formatter = [NSNumberFormatter new];
+        [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+        CLLocationDegrees latitude = [[formatter numberFromString:latitudeString] doubleValue];
+        CLLocationDegrees longitude = [[formatter numberFromString:longitudeString] doubleValue];
+        [self.parcelPath addLatitude:latitude longitude:longitude];
+    }
+}
+
+- (void)drawPath
+{
+    [self setupPath];
+    self.parcelPathLine = [GMSPolyline polylineWithPath:self.parcelPath];
+    self.parcelPathLine.strokeColor = [UIColor redColor];
+    self.parcelPathLine.strokeWidth = 2.0f;
+    self.parcelPathLine.map = self.mapView;
+    [self.mapView setNeedsDisplay];
+}
+
+- (void)updateParcelLocationWithCompletion:(void (^)(void))completion
 {
     AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     [delegate.parcelHandler loadParcelLocationWithCompletion:^{
-        GMSMarker *marker = [[GMSMarker alloc] init];
-        marker.position = [delegate.parcelHandler getCurrentParcelLocation];
-        marker.title = @"Parcel";
-        marker.snippet = @"Some Note";
-        marker.map = self.mapView;
+        [self.mapView clear];
+        self.parcelMarker = [[GMSMarker alloc] init];
+        self.parcelMarker.position = [delegate.parcelHandler getCurrentParcelLocation];
+        self.parcelMarker.title = @"Parcel";
+        self.parcelMarker.snippet = [NSString stringWithFormat:@"%f, %f", self.parcelMarker.position.latitude, self.parcelMarker.position.longitude];
+        self.parcelMarker.map = self.mapView;
+        [self drawPath];
+        [completion invoke];
     }];
 }
 
@@ -87,6 +117,13 @@
 {
     GMSCameraUpdate *cameraUpdate = [GMSCameraUpdate setTarget:self.mapView.myLocation.coordinate];
     [self.mapView animateWithCameraUpdate:cameraUpdate];
+}
+
+// ---- [ map view delegate ] ----------------------------------------------------
+
+- (void)mapView:(GMSMapView *)mapView willMove:(BOOL)gesture
+{
+    [self updateParcelLocationWithCompletion:nil];
 }
 
 @end

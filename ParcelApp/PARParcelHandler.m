@@ -35,6 +35,40 @@
     }] resume];
 }
 
+- (void)pickupParcelWithCompletion:(void (^)(void))completion
+{
+    NSURLSession *session = [NSURLSession sharedSession];
+    [[session dataTaskWithURL:[self getPickupParcelURLForGroupID:GROUP_ID] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        [self loadParcelLocationWithCompletion:nil];
+        NSError *jsonError;
+        NSArray *result = [NSJSONSerialization JSONObjectWithData:data
+                                                          options:NSJSONReadingAllowFragments
+                                                            error:&jsonError];
+        NSString *message = [(NSDictionary*)result[0] objectForKey:@"message"];
+        if (![message isEqualToString:@"success"]) {
+            [self displayError:message];
+        }
+        [completion invoke];
+    }] resume];
+}
+
+- (void)dropParcelWithLatitude:(NSString*)latitude Longitude:(NSString*)longitude Completion:(void (^)(void))completion
+{
+    NSURLSession *session = [NSURLSession sharedSession];
+    [[session dataTaskWithURL:[self getDropParcelURLWithLatitude:latitude Longitude:longitude GroupID:GROUP_ID Note:@""] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        [self loadParcelLocationWithCompletion:nil];
+        NSError *jsonError;
+        NSArray *result = [NSJSONSerialization JSONObjectWithData:data
+                                                          options:NSJSONReadingAllowFragments
+                                                            error:&jsonError];
+        NSString *message = [(NSDictionary*)result[0] objectForKey:@"message"];
+        if (![message isEqualToString:@"success"]) {
+            [self displayError:message];
+        }
+        [completion invoke];
+    }] resume];
+}
+
 - (CLLocationCoordinate2D)getCurrentParcelLocation
 {
     NSString *latitudeString = [((NSDictionary*)[self.locations objectAtIndex:0]) objectForKey:@"Latitude"];
@@ -43,8 +77,17 @@
     [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
     CLLocationDegrees latitude = [[formatter numberFromString:latitudeString] doubleValue];
     CLLocationDegrees longitude = [[formatter numberFromString:longitudeString] doubleValue];
-    NSLog(@"lat: %f, long: %f", latitude, longitude);
-    return CLLocationCoordinate2DMake(longitude, latitude);
+    return CLLocationCoordinate2DMake(latitude, longitude);
+}
+
+- (void)displayError:(NSString*)message
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error!"
+                                                        message:message
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+    [alertView show];
 }
 
 // ---- [ urls ] ---------------------------------------------------------------------------

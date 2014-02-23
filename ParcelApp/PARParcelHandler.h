@@ -11,10 +11,15 @@
 
 #define SERVER_URL_STRING @"https://parcelserver.appspot.com/"
 
+#define GROUP_ID @"1"
+
 @interface PARParcelHandler : NSObject
 
 - (void)loadParcelLocationWithCompletion:(void (^)(void))completion;
+- (void)pickupParcelWithCompletion:(void (^)(void))completion;
+- (void)dropParcelWithLatitude:(NSString*)latitude Longitude:(NSString*)longitude Completion:(void (^)(void))completion;
 - (CLLocationCoordinate2D)getCurrentParcelLocation;
+- (void)displayError:(NSString*)message;
 
 @property (strong, nonatomic) NSArray *locations;
 
