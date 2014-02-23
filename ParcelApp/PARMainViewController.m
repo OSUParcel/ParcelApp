@@ -16,7 +16,7 @@
 
 @implementation PARMainViewController
 
-@synthesize mapView, bannerViewController, parcelPath, parcelPathLine;
+@synthesize mapView, bannerViewController, parcelPath, parcelPathLine, parcelMarker;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -94,11 +94,11 @@
 {
     AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     [delegate.parcelHandler loadParcelLocationWithCompletion:^{
-        GMSMarker *marker = [[GMSMarker alloc] init];
-        marker.position = [delegate.parcelHandler getCurrentParcelLocation];
-        marker.title = @"Parcel";
-        marker.snippet = [NSString stringWithFormat:@"%f, %f", marker.position.latitude, marker.position.longitude];
-        marker.map = self.mapView;
+        self.parcelMarker = [[GMSMarker alloc] init];
+        self.parcelMarker.position = [delegate.parcelHandler getCurrentParcelLocation];
+        self.parcelMarker.title = @"Parcel";
+        self.parcelMarker.snippet = [NSString stringWithFormat:@"%f, %f", self.parcelMarker.position.latitude, self.parcelMarker.position.longitude];
+        self.parcelMarker.map = self.mapView;
         [self drawPath];
         [completion invoke];
     }];

@@ -20,6 +20,7 @@
 @property (strong, nonatomic) PARBannerViewController *bannerViewController;
 @property (strong, nonatomic) GMSMutablePath *parcelPath;
 @property (strong, nonatomic) GMSPolyline *parcelPathLine;
+@property (strong, nonatomic) GMSMarker *parcelMarker;
 
 @property (weak, nonatomic) IBOutlet UIView *bannerView;
 @property (weak, nonatomic) IBOutlet UIButton *parcelLocationButton;
