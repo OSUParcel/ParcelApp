@@ -54,8 +54,7 @@
         } else {
             if (![[NSUserDefaults standardUserDefaults] objectForKey:PICKEDUP_KEY]) {
                 // create new device key
-                NSString *str = @"yes";
-                [[NSUserDefaults standardUserDefaults] setObject:str forKey:PICKEDUP_KEY];
+                [[NSUserDefaults standardUserDefaults] setObject:@"yes" forKey:PICKEDUP_KEY];
             }
         }
         
