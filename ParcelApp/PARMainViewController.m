@@ -109,7 +109,6 @@
         CLLocationDistance distanceBetween = [parcelLocation distanceFromLocation:self.mapView.myLocation];
         self.distanceLabel.text = [NSString stringWithFormat:@"%f miles away", distanceBetween * 0.00062137]; // miles
         NSLog(@"%f miles away", distanceBetween * 0.00062137);
-        
         if ([[NSUserDefaults standardUserDefaults] objectForKey:PICKEDUP_KEY]) {
             self.pickupParcelButton.titleLabel.text = @"Drop Parcel";
         } else {
