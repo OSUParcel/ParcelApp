@@ -10,7 +10,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "PARBannerViewController.h"
 
-@interface PARMainViewController : UIViewController
+@interface PARMainViewController : UIViewController <GMSMapViewDelegate>
 
 - (IBAction)parcelButtonPressed:(UIButton *)sender;
 - (IBAction)currentPositionButtonPressed:(UIButton *)sender;
@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *currentLocationButton;
 @property (strong, nonatomic) IBOutlet GMSMapView *mapView;
 @property (strong, nonatomic) PARBannerViewController *bannerViewController;
+@property (strong, nonatomic) GMSMutablePath *parcelPath;
+@property (strong, nonatomic) GMSPolyline *parcelPathLine;
 
 @property (weak, nonatomic) IBOutlet UIView *bannerView;
 @property (weak, nonatomic) IBOutlet UIButton *parcelLocationButton;
