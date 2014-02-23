@@ -16,7 +16,7 @@
 
 @implementation PARMainViewController
 
-@synthesize mapView, parcelPath, parcelPathLine, parcelMarker;
+@synthesize mapView, parcelPath, parcelPathLine, parcelMarker, distanceLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -105,7 +105,7 @@
     CLLocation *parcelLocation = [[CLLocation alloc] initWithLatitude:parcelCoordinates.latitude longitude:parcelCoordinates.longitude];
     
     CLLocationDistance distanceBetween = [parcelLocation distanceFromLocation:self.mapView.myLocation];
-    self.distanceLabel.text = [NSString stringWithFormat:@"%f", distanceBetween * 0.00062137]; //Print in miles
+    self.distanceLabel.text = [NSString stringWithFormat:@"%f miles away", distanceBetween * 0.00062137]; //Print in miles
     NSLog(@"%f miles away", distanceBetween * 0.00062137);
 }
 
