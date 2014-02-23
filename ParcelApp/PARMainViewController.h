@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <GoogleMaps/GoogleMaps.h>
-#import "PARBannerViewController.h"
 
 @interface PARMainViewController : UIViewController <GMSMapViewDelegate>
 
@@ -17,12 +16,11 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *currentLocationButton;
 @property (strong, nonatomic) IBOutlet GMSMapView *mapView;
-@property (strong, nonatomic) PARBannerViewController *bannerViewController;
 @property (strong, nonatomic) GMSMutablePath *parcelPath;
 @property (strong, nonatomic) GMSPolyline *parcelPathLine;
 @property (strong, nonatomic) GMSMarker *parcelMarker;
 
-@property (weak, nonatomic) IBOutlet UIView *bannerView;
 @property (weak, nonatomic) IBOutlet UIButton *parcelLocationButton;
+@property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 
 @end

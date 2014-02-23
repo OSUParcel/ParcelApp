@@ -16,7 +16,7 @@
 
 @implementation PARMainViewController
 
-@synthesize mapView, bannerViewController, parcelPath, parcelPathLine, parcelMarker;
+@synthesize mapView, parcelPath, parcelPathLine, parcelMarker;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,8 +48,6 @@
     self.mapView.myLocationEnabled = YES;
     self.mapView.delegate = self;
     
-    [self setupBannerView];
-    
     [self updateParcelLocationWithCompletion:^{
         AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
         GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:[delegate.parcelHandler getCurrentParcelLocation].latitude
@@ -57,13 +55,6 @@
                                                                      zoom:6];
         self.mapView.camera = camera;
     }];
-}
-
-- (void)setupBannerView
-{
-    self.bannerViewController = [[PARBannerViewController alloc] initWithNibName:@"PARBannerViewController" bundle:nil];
-    self.bannerViewController.mapView = self.mapView;
-    self.bannerView = self.bannerViewController.view;
 }
 
 - (void)setupPath
@@ -102,8 +93,20 @@
         self.parcelMarker.snippet = [NSString stringWithFormat:@"%f, %f", self.parcelMarker.position.latitude, self.parcelMarker.position.longitude];
         self.parcelMarker.map = self.mapView;
         [self drawPath];
+        [self updateDistance];
         [completion invoke];
     }];
+}
+
+- (void)updateDistance
+{
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    CLLocationCoordinate2D parcelCoordinates = [delegate.parcelHandler getCurrentParcelLocation];
+    CLLocation *parcelLocation = [[CLLocation alloc] initWithLatitude:parcelCoordinates.latitude longitude:parcelCoordinates.longitude];
+    
+    CLLocationDistance distanceBetween = [parcelLocation distanceFromLocation:self.mapView.myLocation];
+    self.distanceLabel.text = [NSString stringWithFormat:@"%f", distanceBetween * 0.00062137]; //Print in miles
+    NSLog(@"%f miles away", distanceBetween * 0.00062137);
 }
 
 - (IBAction)parcelButtonPressed:(UIButton *)sender

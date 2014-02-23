@@ -39,8 +39,6 @@
 		5E8A8B3F18B941C8004410F2 /* PARParcelHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8A8B3E18B941C8004410F2 /* PARParcelHandler.m */; };
 		5E8A8B4218B94DA3004410F2 /* 120x120trans.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5E8A8B4118B94DA3004410F2 /* 120x120trans.gif */; };
 		5E8A8B4418B94F5E004410F2 /* ios_location_lrg.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E8A8B4318B94F5E004410F2 /* ios_location_lrg.png */; };
-		5E8A8B4A18B95345004410F2 /* PARBannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8A8B4818B95345004410F2 /* PARBannerViewController.m */; };
-		5E8A8B4B18B95345004410F2 /* PARBannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E8A8B4918B95345004410F2 /* PARBannerViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,9 +91,6 @@
 		5E8A8B3E18B941C8004410F2 /* PARParcelHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PARParcelHandler.m; sourceTree = "<group>"; };
 		5E8A8B4118B94DA3004410F2 /* 120x120trans.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = 120x120trans.gif; path = Images/120x120trans.gif; sourceTree = SOURCE_ROOT; };
 		5E8A8B4318B94F5E004410F2 /* ios_location_lrg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ios_location_lrg.png; path = Images/ios_location_lrg.png; sourceTree = SOURCE_ROOT; };
-		5E8A8B4718B95345004410F2 /* PARBannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PARBannerViewController.h; sourceTree = "<group>"; };
-		5E8A8B4818B95345004410F2 /* PARBannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PARBannerViewController.m; sourceTree = "<group>"; };
-		5E8A8B4918B95345004410F2 /* PARBannerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PARBannerViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,7 +220,6 @@
 		5E8A89FF18B920F3004410F2 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5E8A8B4618B95331004410F2 /* PARBannerViewController */,
 				5E8A8B4518B95327004410F2 /* PARMainViewController */,
 			);
 			name = "View Controllers";
@@ -275,16 +269,6 @@
 				5E8A8A0318B92281004410F2 /* PARMainViewController.xib */,
 			);
 			name = PARMainViewController;
-			sourceTree = "<group>";
-		};
-		5E8A8B4618B95331004410F2 /* PARBannerViewController */ = {
-			isa = PBXGroup;
-			children = (
-				5E8A8B4718B95345004410F2 /* PARBannerViewController.h */,
-				5E8A8B4818B95345004410F2 /* PARBannerViewController.m */,
-				5E8A8B4918B95345004410F2 /* PARBannerViewController.xib */,
-			);
-			name = PARBannerViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -401,7 +385,6 @@
 				5E8A89DB18B91BE5004410F2 /* InfoPlist.strings in Resources */,
 				5E8A89E318B91BE5004410F2 /* Images.xcassets in Resources */,
 				5E8A8B3718B933AF004410F2 /* GoogleMaps.bundle in Resources */,
-				5E8A8B4B18B95345004410F2 /* PARBannerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,7 +405,6 @@
 			files = (
 				5E8A8B3B18B93BB6004410F2 /* PARDeviceID.m in Sources */,
 				5E8A89E118B91BE5004410F2 /* AppDelegate.m in Sources */,
-				5E8A8B4A18B95345004410F2 /* PARBannerViewController.m in Sources */,
 				5E8A8A0418B92281004410F2 /* PARMainViewController.m in Sources */,
 				5E8A8B3F18B941C8004410F2 /* PARParcelHandler.m in Sources */,
 				5E8A89DD18B91BE5004410F2 /* main.m in Sources */,
