@@ -7,7 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PARMainViewController">
             <connections>
                 <outlet property="currentLocationButton" destination="BJf-8z-LtB" id="9oD-vF-iRE"/>
-                <outlet property="distanceLabel" destination="Ud7-fN-MCH" id="qmG-zf-NE9"/>
+                <outlet property="distanceLabel" destination="Ud7-fN-MCH" id="h4I-qe-B4D"/>
                 <outlet property="mapView" destination="QsL-jx-TYw" id="IjS-lx-NfW"/>
                 <outlet property="parcelLocationButton" destination="a3Y-LW-LZv" id="aqm-Uq-9bF"/>
                 <outlet property="view" destination="1" id="3"/>

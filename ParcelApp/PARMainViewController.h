@@ -21,6 +21,8 @@
 @property (strong, nonatomic) GMSMarker *parcelMarker;
 
 @property (weak, nonatomic) IBOutlet UIButton *parcelLocationButton;
-@property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
+
+@property (strong, nonatomic) IBOutlet UILabel *distanceLabel;
+
 
 @end

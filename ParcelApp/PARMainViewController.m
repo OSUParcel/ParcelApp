@@ -105,7 +105,8 @@
     CLLocation *parcelLocation = [[CLLocation alloc] initWithLatitude:parcelCoordinates.latitude longitude:parcelCoordinates.longitude];
     
     CLLocationDistance distanceBetween = [parcelLocation distanceFromLocation:self.mapView.myLocation];
-    self.distanceLabel.text = [NSString stringWithFormat:@"%f miles away", distanceBetween * 0.00062137]; //Print in miles
+    self.distanceLabel = [UILabel new];
+    self.distanceLabel.text = [NSString stringWithFormat:@"%f miles away", distanceBetween * 0.00062137]; // miles
     NSLog(@"%f miles away", distanceBetween * 0.00062137);
 }
 
