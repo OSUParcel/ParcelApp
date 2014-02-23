@@ -77,7 +77,7 @@
     [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
     CLLocationDegrees latitude = [[formatter numberFromString:latitudeString] doubleValue];
     CLLocationDegrees longitude = [[formatter numberFromString:longitudeString] doubleValue];
-    return CLLocationCoordinate2DMake(longitude, latitude);
+    return CLLocationCoordinate2DMake(latitude, longitude);
 }
 
 - (void)displayError:(NSString*)message

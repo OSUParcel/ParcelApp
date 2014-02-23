@@ -86,14 +86,16 @@
     [self setupPath];
     self.parcelPathLine = [GMSPolyline polylineWithPath:self.parcelPath];
     self.parcelPathLine.strokeColor = [UIColor redColor];
-    self.parcelPathLine.strokeWidth = 5.0f;
+    self.parcelPathLine.strokeWidth = 2.0f;
     self.parcelPathLine.map = self.mapView;
+    [self.mapView setNeedsDisplay];
 }
 
 - (void)updateParcelLocationWithCompletion:(void (^)(void))completion
 {
     AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     [delegate.parcelHandler loadParcelLocationWithCompletion:^{
+        [self.mapView clear];
         self.parcelMarker = [[GMSMarker alloc] init];
         self.parcelMarker.position = [delegate.parcelHandler getCurrentParcelLocation];
         self.parcelMarker.title = @"Parcel";
