@@ -10,6 +10,7 @@
                 <outlet property="distanceLabel" destination="Ud7-fN-MCH" id="h4I-qe-B4D"/>
                 <outlet property="mapView" destination="QsL-jx-TYw" id="IjS-lx-NfW"/>
                 <outlet property="parcelLocationButton" destination="a3Y-LW-LZv" id="aqm-Uq-9bF"/>
+                <outlet property="pickupParcelButton" destination="FVO-6a-tS4" id="Aw4-4c-SGk"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -51,17 +52,32 @@
                         <action selector="currentPositionButtonPressed:" destination="-1" eventType="touchUpInside" id="dgi-e0-eQM"/>
                     </connections>
                 </button>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="distance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ud7-fN-MCH">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ud7-fN-MCH">
                     <rect key="frame" x="20" y="20" width="280" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVO-6a-tS4">
+                    <rect key="frame" x="20" y="519" width="176" height="36"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                    <state key="normal" title="Pick Up Parcel">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" red="0.95686274509803926" green="0.9383495406662431" blue="0.045183702327913515" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="pickupParcelButtonPressed:" destination="-1" eventType="touchUpInside" id="3nH-qY-REE"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="FVO-6a-tS4" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="8Mc-jL-myC"/>
                 <constraint firstItem="Ud7-fN-MCH" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="BAU-fo-E5e"/>
                 <constraint firstAttribute="trailing" secondItem="BJf-8z-LtB" secondAttribute="trailing" constant="20" id="BGu-PI-fTC"/>
+                <constraint firstAttribute="bottom" secondItem="FVO-6a-tS4" secondAttribute="bottom" constant="13" id="Gj8-Ox-t9E"/>
+                <constraint firstItem="a3Y-LW-LZv" firstAttribute="leading" secondItem="FVO-6a-tS4" secondAttribute="trailing" constant="8" id="Hxo-iv-TYR"/>
                 <constraint firstItem="BJf-8z-LtB" firstAttribute="leading" secondItem="a3Y-LW-LZv" secondAttribute="trailing" constant="20" id="IPQ-bF-rj1"/>
                 <constraint firstAttribute="trailing" secondItem="Ud7-fN-MCH" secondAttribute="trailing" constant="20" id="Inz-ck-TsL"/>
                 <constraint firstAttribute="centerX" secondItem="Ud7-fN-MCH" secondAttribute="centerX" id="WWo-aq-zM1"/>

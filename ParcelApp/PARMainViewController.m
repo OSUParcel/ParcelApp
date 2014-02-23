@@ -100,14 +100,20 @@
 
 - (void)updateDistance
 {
-    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    CLLocationCoordinate2D parcelCoordinates = [delegate.parcelHandler getCurrentParcelLocation];
-    CLLocation *parcelLocation = [[CLLocation alloc] initWithLatitude:parcelCoordinates.latitude longitude:parcelCoordinates.longitude];
-    
-    CLLocationDistance distanceBetween = [parcelLocation distanceFromLocation:self.mapView.myLocation];
-    self.distanceLabel = [UILabel new];
-    self.distanceLabel.text = [NSString stringWithFormat:@"%f miles away", distanceBetween * 0.00062137]; // miles
-    NSLog(@"%f miles away", distanceBetween * 0.00062137);
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+        CLLocationCoordinate2D parcelCoordinates = [delegate.parcelHandler getCurrentParcelLocation];
+        CLLocation *parcelLocation = [[CLLocation alloc] initWithLatitude:parcelCoordinates.latitude longitude:parcelCoordinates.longitude];
+        CLLocationDistance distanceBetween = [parcelLocation distanceFromLocation:self.mapView.myLocation];
+        self.distanceLabel.text = [NSString stringWithFormat:@"%f miles away", distanceBetween * 0.00062137]; // miles
+        NSLog(@"%f miles away", distanceBetween * 0.00062137);
+        
+        if (distanceBetween < 100) {
+            self.pickupParcelButton.alpha = 1.0f;
+        } else {
+            self.pickupParcelButton.alpha = 0.0f;
+        }
+    }];
 }
 
 - (IBAction)parcelButtonPressed:(UIButton *)sender
@@ -121,6 +127,14 @@
 {
     GMSCameraUpdate *cameraUpdate = [GMSCameraUpdate setTarget:self.mapView.myLocation.coordinate];
     [self.mapView animateWithCameraUpdate:cameraUpdate];
+}
+
+- (IBAction)pickupParcelButtonPressed:(id)sender
+{
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    [delegate.parcelHandler pickupParcelWithCompletion:^{
+        [self updateParcelLocationWithCompletion:nil];
+    }];
 }
 
 // ---- [ map view delegate ] ----------------------------------------------------

@@ -50,6 +50,7 @@
         NSString *message = [(NSDictionary*)result[0] objectForKey:@"message"];
         if (![message isEqualToString:@"success"]) {
             [self displayError:message];
+            NSLog(@"error: %@", message);
         }
         [completion invoke];
     }] resume];
@@ -66,7 +67,7 @@
                                                             error:&jsonError];
         NSString *message = [(NSDictionary*)result[0] objectForKey:@"message"];
         if (![message isEqualToString:@"success"]) {
-            [self displayError:message];
+            [self performSelectorOnMainThread:@selector(displayError:) withObject:message waitUntilDone:YES];
         }
         [completion invoke];
     }] resume];
