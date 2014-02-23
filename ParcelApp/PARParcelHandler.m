@@ -31,7 +31,10 @@
                                                                        options:NSJSONReadingAllowFragments
                                                                          error:&jsonError];
         self.locations = locationsFromServer;
-        [completion invoke];
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [completion invoke];
+        }];
     }] resume];
 }
 
