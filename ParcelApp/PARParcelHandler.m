@@ -77,6 +77,7 @@
             if (![message isEqualToString:@"success"]) {
                 [self performSelectorOnMainThread:@selector(displayError:) withObject:message waitUntilDone:YES];
             }
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:PICKEDUP_KEY];
             [completion invoke];
         }] resume];
     }
