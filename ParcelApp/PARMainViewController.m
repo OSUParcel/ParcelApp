@@ -84,17 +84,19 @@
 
 - (void)updateParcelLocationWithCompletion:(void (^)(void))completion
 {
-    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    [delegate.parcelHandler loadParcelLocationWithCompletion:^{
-        [self.mapView clear];
-        self.parcelMarker = [[GMSMarker alloc] init];
-        self.parcelMarker.position = [delegate.parcelHandler getCurrentParcelLocation];
-        self.parcelMarker.title = @"Parcel";
-        self.parcelMarker.snippet = [NSString stringWithFormat:@"%f, %f", self.parcelMarker.position.latitude, self.parcelMarker.position.longitude];
-        self.parcelMarker.map = self.mapView;
-        [self drawPath];
-        [self updateDistance];
-        [completion invoke];
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+        [delegate.parcelHandler loadParcelLocationWithCompletion:^{
+            [self.mapView clear];
+            self.parcelMarker = [[GMSMarker alloc] init];
+            self.parcelMarker.position = [delegate.parcelHandler getCurrentParcelLocation];
+            self.parcelMarker.title = @"Parcel";
+            self.parcelMarker.snippet = [NSString stringWithFormat:@"%f, %f", self.parcelMarker.position.latitude, self.parcelMarker.position.longitude];
+            self.parcelMarker.map = self.mapView;
+            [self drawPath];
+            [self updateDistance];
+            [completion invoke];
+        }];
     }];
 }
 
@@ -111,7 +113,7 @@
         if (distanceBetween < 100) {
             self.pickupParcelButton.alpha = 1.0f;
         } else {
-            self.pickupParcelButton.alpha = 0.0f;
+            // self.pickupParcelButton.alpha = 0.0f;
         }
     }];
 }

@@ -86,12 +86,14 @@
 
 - (void)displayError:(NSString*)message
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error!"
-                                                        message:message
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-    [alertView show];
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error!"
+                                                            message:message
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+        [alertView show];
+    }];
 }
 
 // ---- [ urls ] ---------------------------------------------------------------------------
