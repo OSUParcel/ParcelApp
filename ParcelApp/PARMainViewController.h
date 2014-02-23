@@ -13,6 +13,7 @@
 
 - (IBAction)parcelButtonPressed:(UIButton *)sender;
 - (IBAction)currentPositionButtonPressed:(UIButton *)sender;
+- (IBAction)pickupParcelButtonPressed:(UIButton *)sender;
 
 @property (weak, nonatomic) IBOutlet UIButton *currentLocationButton;
 @property (strong, nonatomic) IBOutlet GMSMapView *mapView;
@@ -23,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *parcelLocationButton;
 
 @property (strong, nonatomic) IBOutlet UILabel *distanceLabel;
+
+@property (strong, nonatomic) IBOutlet UIButton *pickupParcelButton;
 
 
 @end
