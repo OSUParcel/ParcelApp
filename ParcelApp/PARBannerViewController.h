@@ -13,4 +13,6 @@
 
 @property (weak, nonatomic) GMSMapView* mapView;
 
+-(void)updateFunction;
+
 @end
