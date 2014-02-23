@@ -10,6 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 
 #define SERVER_URL_STRING @"https://parcelserver.appspot.com/"
+#define PICKEDUP_KEY @"PARPICKEDUP"
 
 #define GROUP_ID @"1"
 

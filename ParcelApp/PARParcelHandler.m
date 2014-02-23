@@ -51,26 +51,35 @@
         if (![message isEqualToString:@"success"]) {
             [self displayError:message];
             NSLog(@"error: %@", message);
+        } else {
+            if (![[NSUserDefaults standardUserDefaults] objectForKey:PICKEDUP_KEY]) {
+                // create new device key
+                NSString *str = @"yes";
+                [[NSUserDefaults standardUserDefaults] setObject:str forKey:PICKEDUP_KEY];
+            }
         }
+        
         [completion invoke];
     }] resume];
 }
 
 - (void)dropParcelWithLatitude:(NSString*)latitude Longitude:(NSString*)longitude Completion:(void (^)(void))completion
 {
-    NSURLSession *session = [NSURLSession sharedSession];
-    [[session dataTaskWithURL:[self getDropParcelURLWithLatitude:latitude Longitude:longitude GroupID:GROUP_ID Note:@""] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        [self loadParcelLocationWithCompletion:nil];
-        NSError *jsonError;
-        NSArray *result = [NSJSONSerialization JSONObjectWithData:data
-                                                          options:NSJSONReadingAllowFragments
-                                                            error:&jsonError];
-        NSString *message = [(NSDictionary*)result[0] objectForKey:@"message"];
-        if (![message isEqualToString:@"success"]) {
-            [self performSelectorOnMainThread:@selector(displayError:) withObject:message waitUntilDone:YES];
-        }
-        [completion invoke];
-    }] resume];
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:PICKEDUP_KEY]) {
+        NSURLSession *session = [NSURLSession sharedSession];
+        [[session dataTaskWithURL:[self getDropParcelURLWithLatitude:latitude Longitude:longitude GroupID:GROUP_ID Note:@""] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            [self loadParcelLocationWithCompletion:nil];
+            NSError *jsonError;
+            NSArray *result = [NSJSONSerialization JSONObjectWithData:data
+                                                              options:NSJSONReadingAllowFragments
+                                                                error:&jsonError];
+            NSString *message = [(NSDictionary*)result[0] objectForKey:@"message"];
+            if (![message isEqualToString:@"success"]) {
+                [self performSelectorOnMainThread:@selector(displayError:) withObject:message waitUntilDone:YES];
+            }
+            [completion invoke];
+        }] resume];
+    }
 }
 
 - (CLLocationCoordinate2D)getCurrentParcelLocation

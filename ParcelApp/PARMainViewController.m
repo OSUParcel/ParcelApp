@@ -110,6 +110,12 @@
         self.distanceLabel.text = [NSString stringWithFormat:@"%f miles away", distanceBetween * 0.00062137]; // miles
         NSLog(@"%f miles away", distanceBetween * 0.00062137);
         
+        if (![[NSUserDefaults standardUserDefaults] objectForKey:PICKEDUP_KEY]) {
+            self.pickupParcelButton.titleLabel.text = @"Drop Parcel";
+        } else {
+            self.pickupParcelButton.titleLabel.text = @"Pick Up Parcel";
+        }
+        
         if (distanceBetween < 100) {
             self.pickupParcelButton.alpha = 1.0f;
         } else {
@@ -134,9 +140,17 @@
 - (IBAction)pickupParcelButtonPressed:(id)sender
 {
     AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    [delegate.parcelHandler pickupParcelWithCompletion:^{
-        [self updateParcelLocationWithCompletion:nil];
-    }];
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:PICKEDUP_KEY]) {
+        NSString *latitude = [NSString stringWithFormat:@"%f", self.mapView.myLocation.coordinate.latitude];
+        NSString *longitude = [NSString stringWithFormat:@"%f", self.mapView.myLocation.coordinate.longitude];
+        [delegate.parcelHandler dropParcelWithLatitude:latitude Longitude:longitude Completion:^{
+            [self updateParcelLocationWithCompletion:nil];
+        }];
+    } else {
+        [delegate.parcelHandler pickupParcelWithCompletion:^{
+            [self updateParcelLocationWithCompletion:nil];
+        }];
+    }
 }
 
 // ---- [ map view delegate ] ----------------------------------------------------
